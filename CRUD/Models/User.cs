@@ -17,6 +17,7 @@ namespace User.Model
 
         public string surname{get;set;}
         [Required]
+        [Range(1,120)]
         public int age{get;set;}
 
         public DateTime creationDate{get;set;}

@@ -10,7 +10,7 @@ using User.Context;
 namespace CRUD.Migrations
 {
     [DbContext(typeof(UserContext))]
-    [Migration("20210524015142_InitialCreate")]
+    [Migration("20210524032505_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
