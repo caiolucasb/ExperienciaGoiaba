@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 using User.Model;
 using User.Context;
@@ -14,23 +15,29 @@ namespace User.Controllers
     public class UserController : Controller
     {
         private readonly UserContext _context;
+        private readonly ILogger<UserController> _logger;
 
-        public UserController(UserContext context)
+        public UserController(UserContext context, ILogger<UserController> logger)
         {
+            _logger = logger;
             _context = context;
         }
         
 
         [HttpGet("/Users")]
         public IActionResult MetodoGetTodos(){
+            _logger.LogInformation(1001, "Lista retornada com sucesso!");
             return Ok(_context.Users.ToList());
         }
 
         [HttpGet("/Users/{id}")]
         public IActionResult MetodoGetUm(int id){
             var user = _context.Users.Where(user => user.id == id).FirstOrDefault(); 
-            if(user == null)
+            if(user == null){
+                _logger.LogWarning(1002, "Usuario de id: {id} não encontrado!", id);
                 return BadRequest("Usuario Não Encontrado");
+            }
+            _logger.LogInformation(1002, "Usuario de id: {id} retornado com sucesso!,id");
             return Ok(user);
         }
 
