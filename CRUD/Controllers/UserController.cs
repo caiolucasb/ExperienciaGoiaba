@@ -47,14 +47,17 @@ namespace User.Controllers
 
         [HttpPut("/Users/{id}")]
         public IActionResult MetodoPut([FromBody] UserModel user, int id){
-            if(_context.Users.Where(user => user.id == id).FirstOrDefault() == null)
+            var userEdit = _context.Users.Where(users => users.id == id).FirstOrDefault();
+            if(userEdit == null)
                 return BadRequest("Usuario Não Encontrado");
             if(user.age == 0 || user.firstName == "" || user.firstName == null)
                 return BadRequest("Preencha os campos obrigatorios");
-            user.id = id;
-            _context.Entry(user).State=EntityState.Modified;
+            userEdit.firstName = user.firstName;
+            userEdit.surname = user.surname;
+            userEdit.age = user.age;
+            _context.Update(userEdit);
             _context.SaveChanges();
-            return Ok(user);
+            return Ok(userEdit);
         }
 
         [HttpDelete("/Users/{id}")]
