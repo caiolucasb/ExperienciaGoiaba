@@ -9,6 +9,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+using Microsoft.EntityFramework;
+using User.Context;
+
 namespace CRUD
 {
     public class Startup
@@ -24,6 +27,8 @@ namespace CRUD
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<UserContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
