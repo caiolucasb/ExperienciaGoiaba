@@ -51,6 +51,7 @@ namespace User.Controllers
         public IActionResult MetodoDelete(int id){
             var user = _context.Users.Where(user => user.id == id).FirstOrDefault();
             _context.Entry(user).State=EntityState.Deleted;
+            _context.SaveChanges();
             return Ok(user);
         }
 
