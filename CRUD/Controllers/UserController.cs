@@ -37,18 +37,22 @@ namespace User.Controllers
                 _logger.LogWarning(1002, "Usuario de id: {id} não encontrado!", id);
                 return BadRequest("Usuario Não Encontrado");
             }
-            _logger.LogInformation(1002, "Usuario de id: {id} retornado com sucesso!,id");
+            _logger.LogInformation(1002, "Usuario de id: {id} retornado com sucesso!",id);
             return Ok(user);
         }
 
         [HttpPost("/Users")]
         public IActionResult MetodoPost([FromBody] UserModel user){
-            if(user.age == 0 || user.firstName == "" || user.firstName == null)
+            if(user.age == 0 || user.firstName == "" || user.firstName == null){
+                _logger.LogWarning(1003, "Não foi possivel criar o usuario!");
                 return BadRequest("Preencha os campos obrigatorios");
+            }
             
             user.creationDate = DateTime.Now;
             _context.Entry(user).State=EntityState.Added;
             _context.SaveChanges();
+            _logger.LogInformation(1003, "Usuario Criado com sucesso!");
+
             return Ok(user);
         }
 
