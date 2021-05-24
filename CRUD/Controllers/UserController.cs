@@ -19,6 +19,7 @@ namespace User.Controllers
         {
             _context = context;
         }
+        
 
         [HttpGet("/Users")]
         public IActionResult MetodoGetTodos(){
@@ -28,6 +29,8 @@ namespace User.Controllers
         [HttpGet("/Users/{id}")]
         public IActionResult MetodoGetUm(int id){
             var user = _context.Users.Where(user => user.id == id).FirstOrDefault(); 
+            if(user == null)
+                return BadRequest("Usuario Não Encontrado");
             return Ok(user);
         }
 
