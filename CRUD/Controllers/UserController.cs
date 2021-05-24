@@ -20,7 +20,18 @@ namespace User.Controllers
             _context = context;
         }
 
-        //[HttpGet("/Users")]
+        [HttpGet("/Users")]
+        public IActionResult MetodoGetTodos(){
+            return Ok(_context.Users.ToList());
+        }
+
+        [HttpGet("/Users/{id}")]
+        public IActionResult MetodoGetUm(int id){
+            var user = _context.Users.Where(user => user.id == id).FirstOrDefault(); 
+            return Ok(user);
+        }
+
+
 
 
     }
