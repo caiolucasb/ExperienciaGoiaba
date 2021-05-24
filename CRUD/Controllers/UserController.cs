@@ -47,6 +47,13 @@ namespace User.Controllers
             return Ok(user);
         }
 
+        [HttpDelete("/Users/{id}")]
+        public IActionResult MetodoDelete(int id){
+            var user = _context.Users.Where(user => user.id == id).FirstOrDefault();
+            _context.Entry(user).State=EntityState.Deleted;
+            return Ok(user);
+        }
+
 
 
 
