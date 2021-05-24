@@ -9,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-using Microsoft.EntityFramework;
+using Microsoft.EntityFrameworkCore;
 using User.Context;
 
 namespace CRUD
