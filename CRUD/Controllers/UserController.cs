@@ -36,6 +36,9 @@ namespace User.Controllers
 
         [HttpPost("/Users")]
         public IActionResult MetodoPost([FromBody] UserModel user){
+            if(user.age == 0 || user.firstName == "")
+                return BadRequest("Preencha os campos obrigatorios");
+            
             user.creationDate = DateTime.Now;
             _context.Entry(user).State=EntityState.Added;
             _context.SaveChanges();
