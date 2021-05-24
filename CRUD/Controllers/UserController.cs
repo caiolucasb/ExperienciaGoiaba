@@ -36,7 +36,7 @@ namespace User.Controllers
 
         [HttpPost("/Users")]
         public IActionResult MetodoPost([FromBody] UserModel user){
-            if(user.age == 0 || user.firstName == "")
+            if(user.age == 0 || user.firstName == "" || user.firstName == null)
                 return BadRequest("Preencha os campos obrigatorios");
             
             user.creationDate = DateTime.Now;
@@ -47,6 +47,10 @@ namespace User.Controllers
 
         [HttpPut("/Users/{id}")]
         public IActionResult MetodoPut([FromBody] UserModel user, int id){
+            if(_context.Users.Where(user => user.id == id).FirstOrDefault() == null)
+                return BadRequest("Usuario Não Encontrado");
+            if(user.age == 0 || user.firstName == "" || user.firstName == null)
+                return BadRequest("Preencha os campos obrigatorios");
             user.id = id;
             _context.Entry(user).State=EntityState.Modified;
             _context.SaveChanges();
