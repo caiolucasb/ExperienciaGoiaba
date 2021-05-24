@@ -59,15 +59,22 @@ namespace User.Controllers
         [HttpPut("/Users/{id}")]
         public IActionResult MetodoPut([FromBody] UserModel user, int id){
             var userEdit = _context.Users.Where(users => users.id == id).FirstOrDefault();
-            if(userEdit == null)
+            if(userEdit == null){
+                _logger.LogWarning(1004, "Usuario não encontrado!");
                 return BadRequest("Usuario Não Encontrado");
-            if(user.age == 0 || user.firstName == "" || user.firstName == null)
+            }
+            
+            if(user.age == 0 || user.firstName == "" || user.firstName == null){
+                _logger.LogWarning(1004, "Não foi possivel alterar o usuario!");
                 return BadRequest("Preencha os campos obrigatorios");
+            }
             userEdit.firstName = user.firstName;
             userEdit.surname = user.surname;
             userEdit.age = user.age;
             _context.Update(userEdit);
             _context.SaveChanges();
+            _logger.LogInformation(1004, "Usuario Alterado com sucesso!");
+
             return Ok(userEdit);
         }
 
