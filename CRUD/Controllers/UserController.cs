@@ -60,7 +60,7 @@ namespace User.Controllers
         public IActionResult MetodoPut([FromBody] UserModel user, int id){
             var userEdit = _context.Users.Where(users => users.id == id).FirstOrDefault();
             if(userEdit == null){
-                _logger.LogWarning(1004, "Usuario não encontrado!");
+                _logger.LogWarning(1004, "Usuario de id: {id} não encontrado!",id);
                 return NotFound("Usuario Não Encontrado");
             }
             
@@ -82,7 +82,7 @@ namespace User.Controllers
         public IActionResult MetodoDelete(int id){
             var user = _context.Users.Where(user => user.id == id).FirstOrDefault();
             if(user == null){
-                _logger.LogWarning(1005,"Usuario não encontrado!");
+                _logger.LogWarning(1005,"Usuario de id: {id} não encontrado!",id);
                 return NotFound("Usuario Não Encontrado");
             }
             _context.Entry(user).State=EntityState.Deleted;
