@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace User.Model
 {
     [Table("User")]
-    class UserModel
+    public class UserModel
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

@@ -4,7 +4,7 @@ using User.Model;
 
 namespace User.Context
 {
-    class UserContext : DbContext
+    public class UserContext : DbContext
     {
         public UserContext(DbContextOptions<UserContext> options)
             : base(options)

@@ -9,9 +9,9 @@ using Microsoft.EntityFrameworkCore;
 using User.Model;
 using User.Context;
 
-namespace User.Controller
+namespace User.Controllers
 {
-    class UserController : Controller
+    public class UserController : Controller
     {
         private readonly UserContext _context;
 
@@ -20,6 +20,8 @@ namespace User.Controller
             _context = context;
         }
 
-        
+        //[HttpGet("/Users")]
+
+
     }
 }
