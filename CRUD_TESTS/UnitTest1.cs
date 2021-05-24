@@ -1,5 +1,5 @@
 using System;
-using Xunit;
+using xunit;
 
 namespace CRUD_TESTS
 {
