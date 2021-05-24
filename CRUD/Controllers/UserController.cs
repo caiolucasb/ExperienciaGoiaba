@@ -31,6 +31,14 @@ namespace User.Controllers
             return Ok(user);
         }
 
+        [HttpPost("/Users")]
+        public IActionResult MetodoPost([FromBody] UserModel user){
+            user.creationDate = DateTime.Now;
+            _context.Entry(user).State=EntityState.Added;
+            _context.SaveChanges();
+            return Ok(user);
+        }
+
 
 
 
