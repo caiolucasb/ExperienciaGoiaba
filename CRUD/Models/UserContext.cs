@@ -11,6 +11,6 @@ namespace User.Context
         {
             
         }
-        public DbSet<User> User{get;set;}
+        public DbSet<UserModel> Users{get;set;}
     }
 }
