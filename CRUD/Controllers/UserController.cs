@@ -81,10 +81,14 @@ namespace User.Controllers
         [HttpDelete("/Users/{id}")]
         public IActionResult MetodoDelete(int id){
             var user = _context.Users.Where(user => user.id == id).FirstOrDefault();
-            if(_context.Users.Where(user => user.id == id).FirstOrDefault() == null)
+            if(user == null){
+                _logger.LogWarning(1005,"Usuario não encontrado!");
                 return BadRequest("Usuario Não Encontrado");
+            }
             _context.Entry(user).State=EntityState.Deleted;
             _context.SaveChanges();
+            _logger.LogInformation(1005, "Usuario Deletado com sucesso!");
+
             return Ok(user);
         }
 
