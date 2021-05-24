@@ -35,7 +35,7 @@ namespace User.Controllers
             var user = _context.Users.Where(user => user.id == id).FirstOrDefault(); 
             if(user == null){
                 _logger.LogWarning(1002, "Usuario de id: {id} não encontrado!", id);
-                return BadRequest("Usuario Não Encontrado");
+                return NotFound("Usuario Não Encontrado");
             }
             _logger.LogInformation(1002, "Usuario de id: {id} retornado com sucesso!",id);
             return Ok(user);
@@ -61,7 +61,7 @@ namespace User.Controllers
             var userEdit = _context.Users.Where(users => users.id == id).FirstOrDefault();
             if(userEdit == null){
                 _logger.LogWarning(1004, "Usuario não encontrado!");
-                return BadRequest("Usuario Não Encontrado");
+                return NotFound("Usuario Não Encontrado");
             }
             
             if(user.age == 0 || user.firstName == "" || user.firstName == null){
@@ -83,7 +83,7 @@ namespace User.Controllers
             var user = _context.Users.Where(user => user.id == id).FirstOrDefault();
             if(user == null){
                 _logger.LogWarning(1005,"Usuario não encontrado!");
-                return BadRequest("Usuario Não Encontrado");
+                return NotFound("Usuario Não Encontrado");
             }
             _context.Entry(user).State=EntityState.Deleted;
             _context.SaveChanges();
