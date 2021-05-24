@@ -39,6 +39,14 @@ namespace User.Controllers
             return Ok(user);
         }
 
+        [HttpPut("/Users/{id}")]
+        public IActionResult MetodoPut([FromBody] UserModel user, int id){
+            user.id = id;
+            _context.Entry(user).State=EntityState.Modified;
+            _context.SaveChanges();
+            return Ok(user);
+        }
+
 
 
 
