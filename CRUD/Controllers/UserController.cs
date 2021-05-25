@@ -85,7 +85,7 @@ namespace User.Controllers
                 //_logger.LogWarning(1005,"Usuario de id: {id} não encontrado!",id);
                 return NotFound("Usuario Não Encontrado");
             }
-            _context.Entry(user).State=EntityState.Deleted;
+            _context.Remove(user);
             _context.SaveChanges();
             //_logger.LogInformation(1005, "Usuario Deletado com sucesso!");
 
