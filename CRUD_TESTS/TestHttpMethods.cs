@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Xunit;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -8,6 +9,7 @@ using User.Model;
 using User.Context;
 using User.Controllers;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace CRUD_TESTS
 {
@@ -18,22 +20,43 @@ namespace CRUD_TESTS
         public void ItWasReturnedTest()
         {
             //Criação do contexto e do bdset com mock(Arrange)
+            var data = new List<UserModel>{
+                new UserModel(){
+                id= 5,
+                firstName = "Steven",
+                surname = "Ericksen",
+                age = 40
+                },
+                new UserModel(){
+                id= 6,
+                firstName = "George",
+                surname = "Ericksen",
+                age = 55
+                },
+                new UserModel(){
+                id= 7,
+                firstName = "Patrick",
+                surname = "Ericksen",
+                age = 45
+                }
+            }.AsQueryable();
+
             var mockSet = new Mock<DbSet<UserModel>>();
+            mockSet.As<IQueryable<UserModel>>().Setup(m => m.Provider).Returns(data.Provider);
+            mockSet.As<IQueryable<UserModel>>().Setup(m => m.Expression).Returns(data.Expression);
             var mockContext = new Mock<UserContext>();
             //Criando nosso contexto mockado para passar para nossso argumento do constructor da controller
             mockContext.Setup(m => m.Users).Returns(mockSet.Object);
             //Criando classe para instanciar o metodo post que iremos testar
             var service = new UserController(mockContext.Object);
-            var user = new UserModel(){
-                firstName = "Jailton",
-                surname = "Ericksen",
-                age = 17
-            };
             //Usando metodo testavel(Act)
-            service.MetodoPost(user);
-            IActionResult actionResult = service.MetodoGetUm(user.id);
+            IActionResult actionResult = service.MetodoGetUm(5);
+            IActionResult actionResultx = service.MetodoGetUm(7);
+            IActionResult actionResulty = service.MetodoGetUm(8);
             //(Assert)
             Assert.IsType<OkObjectResult>(actionResult);
+            Assert.IsType<OkObjectResult>(actionResultx);
+            Assert.IsType<NotFoundObjectResult>(actionResulty);
         }
         [Fact]
         public void ItWasCreatedCorrectlyTest()
@@ -52,7 +75,7 @@ namespace CRUD_TESTS
                 age = 17
             });
             //(Assert)
-            mockSet.Verify(m => m.Add(It.IsAny<UserModel>()),Times.Once());
+            mockContext.Verify(m => m.Add(It.IsAny<UserModel>()),Times.Once());
             mockContext.Verify(m => m.SaveChanges(), Times.Once());
         }
         /*[Fact]
@@ -60,11 +83,48 @@ namespace CRUD_TESTS
         {
 
         }
+        */
         [Fact]
         public void ItWasDeletedTest()
         {
+            //Criação do contexto e do bdset com mock(Arrange)
+            var data = new List<UserModel>{
+                new UserModel(){
+                id= 5,
+                firstName = "Steven",
+                surname = "Ericksen",
+                age = 40
+                },
+                new UserModel(){
+                id= 6,
+                firstName = "George",
+                surname = "Ericksen",
+                age = 55
+                },
+                new UserModel(){
+                id= 7,
+                firstName = "Patrick",
+                surname = "Ericksen",
+                age = 45
+                }
+            }.AsQueryable();
 
+            var mockSet = new Mock<DbSet<UserModel>>();
+            mockSet.As<IQueryable<UserModel>>().Setup(m => m.Provider).Returns(data.Provider);
+            mockSet.As<IQueryable<UserModel>>().Setup(m => m.Expression).Returns(data.Expression);
+
+            var mockContext = new Mock<UserContext>();
+            //Criando nosso contexto mockado para passar para nossso argumento do constructor da controller
+            mockContext.Setup(m => m.Users).Returns(mockSet.Object);
+            //Criando classe para instanciar o metodo post que iremos testar
+            var service = new UserController(mockContext.Object);
+            //Usando metodo testavel(Act)
+        
+            service.MetodoDelete(7);
+            //(Assert)
+            mockContext.Verify(m => m.Remove(It.IsAny<UserModel>()),Times.Once());
+            mockContext.Verify(m => m.SaveChanges(), Times.Once());
         }
-        */
+        
     }
 }
