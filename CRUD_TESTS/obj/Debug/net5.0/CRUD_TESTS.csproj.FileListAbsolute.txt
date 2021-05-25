@@ -137,3 +137,5 @@
 /home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD_TESTS/obj/Debug/net5.0/ref/CRUD_TESTS.dll
 /home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD_TESTS/obj/Debug/net5.0/CRUD_TESTS.pdb
 /home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD_TESTS/obj/Debug/net5.0/CRUD_TESTS.genruntimeconfig.cache
+/home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD_TESTS/bin/Debug/net5.0/Castle.Core.dll
+/home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD_TESTS/bin/Debug/net5.0/Moq.dll
