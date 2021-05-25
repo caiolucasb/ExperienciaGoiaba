@@ -1,6 +1,9 @@
 using System;
 using Xunit;
-using CRUD;
+using Microsoft.EntityFrameworkCore;
+using Moq;
+
+using User.Model;
 
 namespace CRUD_TESTS
 {
@@ -9,7 +12,7 @@ namespace CRUD_TESTS
         [Fact]
         public void ItWasReturnedTest()
         {
-
+            var mocKSet = new Mock<DbSet<UserModel>>();
         }
         [Fact]
         public void ItWasListedTest()
