@@ -19,6 +19,11 @@ namespace CRUD_TESTS
         [Fact]
         public void ItWasReturnedTest()
         {
+            //Criando log mocado
+            var mock = new Mock<ILogger<UserController>>();
+            ILogger<UserController> logger = mock.Object;
+            logger = Mock.Of<ILogger<UserController>>();
+
             //Criação do contexto e do bdset com mock(Arrange)
             var data = new List<UserModel>{
                 new UserModel(){
@@ -48,7 +53,7 @@ namespace CRUD_TESTS
             //Criando nosso contexto mockado para passar para nossso argumento do constructor da controller
             mockContext.Setup(m => m.Users).Returns(mockSet.Object);
             //Criando classe para instanciar o metodo post que iremos testar
-            var service = new UserController(mockContext.Object);
+            var service = new UserController(mockContext.Object, logger);
             //Usando metodo testavel(Act)
             IActionResult actionResult = service.MetodoGetUm(5);
             IActionResult actionResultx = service.MetodoGetUm(7);
@@ -61,13 +66,18 @@ namespace CRUD_TESTS
         [Fact]
         public void ItWasCreatedCorrectlyTest()
         {
+            //Criando log mocado
+            var mock = new Mock<ILogger<UserController>>();
+            ILogger<UserController> logger = mock.Object;
+            logger = Mock.Of<ILogger<UserController>>();
+
             //Criação do contexto e do bdset com mock(Arrange)
             var mockSet = new Mock<DbSet<UserModel>>();
             var mockContext = new Mock<UserContext>();
             //Criando nosso contexto mockado para passar para nossso argumento do constructor da controller
             mockContext.Setup(m => m.Users).Returns(mockSet.Object);
             //Criando classe para instanciar o metodo post que iremos testar
-            var service = new UserController(mockContext.Object);
+            var service = new UserController(mockContext.Object, logger);
             //Usando metodo testavel(Act)
             service.MetodoPost(new UserModel(){
                 firstName = "Jailton",
@@ -81,6 +91,11 @@ namespace CRUD_TESTS
         [Fact]
         public void ItWasEditedTest()
         {
+            //Criando log mocado
+            var mock = new Mock<ILogger<UserController>>();
+            ILogger<UserController> logger = mock.Object;
+            logger = Mock.Of<ILogger<UserController>>();
+
             //Criação do contexto e do bdset com mock(Arrange)
             var data = new List<UserModel>{
                 new UserModel(){
@@ -111,7 +126,7 @@ namespace CRUD_TESTS
             //Criando nosso contexto mockado para passar para nossso argumento do constructor da controller
             mockContext.Setup(m => m.Users).Returns(mockSet.Object);
             //Criando classe para instanciar o metodo post que iremos testar
-            var service = new UserController(mockContext.Object);
+            var service = new UserController(mockContext.Object, logger);
             //Usando metodo testavel(Act)
         
             service.MetodoPut(
@@ -134,6 +149,11 @@ namespace CRUD_TESTS
         [Fact]
         public void ItWasDeletedTest()
         {
+            //Criando log mocado
+            var mock = new Mock<ILogger<UserController>>();
+            ILogger<UserController> logger = mock.Object;
+            logger = Mock.Of<ILogger<UserController>>();
+
             //Criação do contexto e do bdset com mock(Arrange)
             var data = new List<UserModel>{
                 new UserModel(){
@@ -164,7 +184,7 @@ namespace CRUD_TESTS
             //Criando nosso contexto mockado para passar para nossso argumento do constructor da controller
             mockContext.Setup(m => m.Users).Returns(mockSet.Object);
             //Criando classe para instanciar o metodo post que iremos testar
-            var service = new UserController(mockContext.Object);
+            var service = new UserController(mockContext.Object, logger);
             //Usando metodo testavel(Act)
         
             service.MetodoDelete(7);
