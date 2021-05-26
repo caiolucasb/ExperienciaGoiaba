@@ -15,18 +15,18 @@ namespace User.Controllers
     public class UserController : Controller
     {
         private readonly UserContext _context;
-        //private readonly ILogger<UserController> _logger;
+        private readonly ILogger<UserController> _logger;
 
-        public UserController(UserContext context/*, ILogger<UserController> logger*/)
+        public UserController(UserContext context, ILogger<UserController> logger)
         {
-            //_logger = logger;
+            _logger = logger;
             _context = context;
         }
         
 
         [HttpGet("/Users")]
         public IActionResult MetodoGetTodos(){
-            //_logger.LogInformation(1001, "Lista retornada com sucesso!");
+            _logger.LogInformation(1001, "Lista retornada com sucesso!");
             return Ok(_context.Users.ToList());
         }
 
@@ -34,24 +34,24 @@ namespace User.Controllers
         public IActionResult MetodoGetUm(int id){
             var user = _context.Users.Where(user => user.id == id).FirstOrDefault(); 
             if(user == null){
-                //_logger.LogWarning(1002, "Usuario de id: {id} não encontrado!", id);
+                _logger.LogWarning(1002, "Usuario de id: {id} não encontrado!", id);
                 return NotFound("Usuario Não Encontrado");
             }
-            //_logger.LogInformation(1002, "Usuario de id: {id} retornado com sucesso!",id);
+            _logger.LogInformation(1002, "Usuario de id: {id} retornado com sucesso!",id);
             return Ok(user);
         }
 
         [HttpPost("/Users")]
         public IActionResult MetodoPost([FromBody]UserModel user){
             if(user.age == 0 || user.firstName == "" || user.firstName == null){
-                //_logger.LogWarning(1003, "Não foi possivel criar o usuario!");
+                _logger.LogWarning(1003, "Não foi possivel criar o usuario!");
                 return BadRequest("Preencha os campos obrigatorios");
             }
             
             user.creationDate = DateTime.Now;
             _context.Add(user);
             _context.SaveChanges();
-            //_logger.LogInformation(1003, "Usuario Criado com sucesso!");
+            _logger.LogInformation(1003, "Usuario Criado com sucesso!");
 
             return Ok(user);
         }
@@ -60,12 +60,12 @@ namespace User.Controllers
         public IActionResult MetodoPut([FromBody] UserModel user, int id){
             var userEdit = _context.Users.Where(users => users.id == id).FirstOrDefault();
             if(userEdit == null){
-                //_logger.LogWarning(1004, "Usuario de id: {id} não encontrado!",id);
+                _logger.LogWarning(1004, "Usuario de id: {id} não encontrado!",id);
                 return NotFound("Usuario Não Encontrado");
             }
             
             if(user.age == 0 || user.firstName == "" || user.firstName == null){
-                //_logger.LogWarning(1004, "Não foi possivel alterar o usuario!");
+                _logger.LogWarning(1004, "Não foi possivel alterar o usuario!");
                 return BadRequest("Preencha os campos obrigatorios");
             }
             userEdit.firstName = user.firstName;
@@ -73,7 +73,7 @@ namespace User.Controllers
             userEdit.age = user.age;
             _context.Update(userEdit);
             _context.SaveChanges();
-            //_logger.LogInformation(1004, "Usuario Alterado com sucesso!");
+            _logger.LogInformation(1004, "Usuario Alterado com sucesso!");
 
             return Ok(userEdit);
         }
@@ -82,12 +82,12 @@ namespace User.Controllers
         public IActionResult MetodoDelete(int id){
             var user = _context.Users.Where(user => user.id == id).FirstOrDefault();
             if(user == null){
-                //_logger.LogWarning(1005,"Usuario de id: {id} não encontrado!",id);
+                _logger.LogWarning(1005,"Usuario de id: {id} não encontrado!",id);
                 return NotFound("Usuario Não Encontrado");
             }
             _context.Remove(user);
             _context.SaveChanges();
-            //_logger.LogInformation(1005, "Usuario Deletado com sucesso!");
+            _logger.LogInformation(1005, "Usuario Deletado com sucesso!");
 
             return Ok(user);
         }
