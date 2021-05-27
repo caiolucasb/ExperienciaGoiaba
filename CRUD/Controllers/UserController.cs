@@ -23,12 +23,7 @@ namespace User.Controllers
             _context = context;
         }
         //Para testes em docker
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-
+        
         [HttpGet("/Users")]
         public IActionResult MetodoGetTodos(){
             _logger.LogInformation(1001, "Lista retornada com sucesso!");

@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 
 using Microsoft.EntityFrameworkCore;
 using User.Context;
+using User.Services;
 
 namespace CRUD
 {
@@ -26,14 +27,25 @@ namespace CRUD
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
-            services.AddDbContext<UserContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection")));
 
+            var server = Configuration["DbServer"] ?? "localhost";
+            var port = Configuration["DbPort"] ?? "1433";
+            var user = Configuration["DbUser"] ?? "SA";
+            var password = Configuration["DbPassword"] ?? "#Caio159357";
+            var database = Configuration["DbName"] ?? "UserAfterDb";
+
+            var connectionString = $"Server={server}, {port};Initial Catalog={database};User id={user};Password={password}";
+            services.AddDbContext<UserContext>(options => options.UseSqlServer(connectionString));
+            
+            services.AddControllersWithViews();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            DbManagementService.MigrationInitialisation(app);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
