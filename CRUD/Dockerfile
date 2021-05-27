@@ -4,8 +4,10 @@ WORKDIR /app
 COPY *.csproj ./
 RUN dotnet restore
 RUN pwsh -Command Write-Host "CRUD: Gerando imagem Docker"
+ #Build da aplicação
+COPY . ./
 # Build da imagem
 FROM mcr.microsoft.com/dotnet/aspnet:5.0
 WORKDIR /app
-COPY --from=build-env /app/dist .
+COPY --from=build-env app/dist .
 ENTRYPOINT ["dotnet", "CRUD.dll"]
