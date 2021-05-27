@@ -22,7 +22,12 @@ namespace User.Controllers
             _logger = logger;
             _context = context;
         }
-        
+        //Para testes em docker
+        public IActionResult Index()
+        {
+            return View();
+        }
+
 
         [HttpGet("/Users")]
         public IActionResult MetodoGetTodos(){
