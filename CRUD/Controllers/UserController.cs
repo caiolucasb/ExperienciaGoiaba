@@ -22,8 +22,8 @@ namespace User.Controllers
             _logger = logger;
             _context = context;
         }
+        //Para testes em docker
         
-
         [HttpGet("/Users")]
         public IActionResult MetodoGetTodos(){
             _logger.LogInformation(1001, "Lista retornada com sucesso!");

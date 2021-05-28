@@ -56,8 +56,6 @@
 /home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD/obj/Debug/net5.0/CRUD.TagHelpers.input.cache
 /home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD/obj/Debug/net5.0/CRUD.TagHelpers.output.cache
 /home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD/obj/Debug/net5.0/CRUD.RazorCoreGenerate.cache
-/home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD/obj/Debug/net5.0/Razor/Views/Home/Index.cshtml.g.cs
-/home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD/obj/Debug/net5.0/Razor/Views/Home/Privacy.cshtml.g.cs
 /home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD/obj/Debug/net5.0/Razor/Views/Shared/Error.cshtml.g.cs
 /home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD/obj/Debug/net5.0/Razor/Views/Shared/_Layout.cshtml.g.cs
 /home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD/obj/Debug/net5.0/Razor/Views/Shared/_ValidationScriptsPartial.cshtml.g.cs
@@ -71,8 +69,13 @@
 /home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD/obj/Debug/net5.0/ref/CRUD.dll
 /home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD/obj/Debug/net5.0/CRUD.pdb
 /home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD/obj/Debug/net5.0/CRUD.genruntimeconfig.cache
+<<<<<<< HEAD
 /home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD/bin/Debug/net5.0/dist/web.config
 /home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD/bin/Debug/net5.0/dist/appsettings.Development.json
 /home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD/bin/Debug/net5.0/dist/appsettings.json
 /home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD/bin/Debug/net5.0/dist/CRUD.deps.json
 /home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD/bin/Debug/net5.0/dist/CRUD.runtimeconfig.json
+=======
+/home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD/obj/Debug/net5.0/Razor/Views/User/Index.cshtml.g.cs
+/home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD/obj/Debug/net5.0/Razor/Views/User/Privacy.cshtml.g.cs
+>>>>>>> dev
