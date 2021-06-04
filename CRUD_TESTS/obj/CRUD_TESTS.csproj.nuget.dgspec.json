@@ -1,25 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD_TESTS/CRUD_TESTS.csproj": {}
+    "C:\\Users\\caiol\\source\\repos\\caiolucasb\\ExperienciaGoiaba\\CRUD_TESTS\\CRUD_TESTS.csproj": {}
   },
   "projects": {
-    "/home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD/CRUD.csproj": {
+    "C:\\Users\\caiol\\source\\repos\\caiolucasb\\ExperienciaGoiaba\\CRUD\\CRUD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD/CRUD.csproj",
+        "projectUniqueName": "C:\\Users\\caiol\\source\\repos\\caiolucasb\\ExperienciaGoiaba\\CRUD\\CRUD.csproj",
         "projectName": "CRUD",
-        "projectPath": "/home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD/CRUD.csproj",
-        "packagesPath": "/home/caiolucas/.nuget/packages/",
-        "outputPath": "/home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD/obj/",
+        "projectPath": "C:\\Users\\caiol\\source\\repos\\caiolucasb\\ExperienciaGoiaba\\CRUD\\CRUD.csproj",
+        "packagesPath": "C:\\Users\\caiol\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\caiol\\source\\repos\\caiolucasb\\ExperienciaGoiaba\\CRUD\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/home/caiolucas/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\caiol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -81,34 +88,41 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.203/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD_TESTS/CRUD_TESTS.csproj": {
+    "C:\\Users\\caiol\\source\\repos\\caiolucasb\\ExperienciaGoiaba\\CRUD_TESTS\\CRUD_TESTS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD_TESTS/CRUD_TESTS.csproj",
+        "projectUniqueName": "C:\\Users\\caiol\\source\\repos\\caiolucasb\\ExperienciaGoiaba\\CRUD_TESTS\\CRUD_TESTS.csproj",
         "projectName": "CRUD_TESTS",
-        "projectPath": "/home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD_TESTS/CRUD_TESTS.csproj",
-        "packagesPath": "/home/caiolucas/.nuget/packages/",
-        "outputPath": "/home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD_TESTS/obj/",
+        "projectPath": "C:\\Users\\caiol\\source\\repos\\caiolucasb\\ExperienciaGoiaba\\CRUD_TESTS\\CRUD_TESTS.csproj",
+        "packagesPath": "C:\\Users\\caiol\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\caiol\\source\\repos\\caiolucasb\\ExperienciaGoiaba\\CRUD_TESTS\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/home/caiolucas/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\caiol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "/home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD/CRUD.csproj": {
-                "projectPath": "/home/caiolucas/Documents/Intelitrader/ExperienciaGoiaba/CRUD/CRUD.csproj"
+              "C:\\Users\\caiol\\source\\repos\\caiolucasb\\ExperienciaGoiaba\\CRUD\\CRUD.csproj": {
+                "projectPath": "C:\\Users\\caiol\\source\\repos\\caiolucasb\\ExperienciaGoiaba\\CRUD\\CRUD.csproj"
               }
             }
           }
@@ -171,7 +185,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.203/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
